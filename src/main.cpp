@@ -308,7 +308,6 @@ void restoreCfg() {
 
 // setup /////////////////////////////////////////////////////////// 
 void setup() {
-Serial.begin(115200);
   SPIFFS.begin(true);
   btStop();
   pinMode(BUTTON_A,   INPUT);
@@ -344,7 +343,6 @@ Serial.begin(115200);
     uint64_t sleeptime = UINT64_C(sleepSeconds * 1000000);  
     esp_sleep_enable_timer_wakeup(sleeptime);
     esp_sleep_enable_ext1_wakeup(BUTTON_PIN_BITMASK,ESP_EXT1_WAKEUP_ANY_HIGH); //need resistor
-Serial.flush(); 
     esp_deep_sleep_start();
   }
   else {                                               //Only Charger connection can wake up device
